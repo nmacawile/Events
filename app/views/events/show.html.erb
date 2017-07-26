@@ -1,0 +1,9 @@
+<h1><%= @event.title %></h1>
+Created by:<%= link_to @event.host.name, user_path(@event.host) %>
+
+<p>
+    Venue: <%= @event.venue %>
+    Start: <%= @event.time_start %>
+    End: <%= @event.time_end %>
+    Description: <%= @event.description %>
+</p>

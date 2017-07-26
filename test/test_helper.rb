@@ -11,3 +11,9 @@ class ActiveSupport::TestCase
   end
 end
 
+class ActionDispatch::IntegrationTest
+  def sign_in_as(user)
+    post signin_path, params: { session: { email: user.email,
+                                           password: "password" } }
+  end
+end
