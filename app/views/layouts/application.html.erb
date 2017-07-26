@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if signed_in? %>
+      Signed in as: <%= current_user.name %> | <%= link_to "Sign out", signout_path, method: :delete %>
+    <% else %>
+      You are not signed in. | <%= link_to "Sign in", signin_path %> | <%= link_to "Sign up", signup_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
