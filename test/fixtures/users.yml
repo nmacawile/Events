@@ -5,3 +5,17 @@ one:
   email: one@fixtures.fix
   password_digest: <%= User.digest("password") %>
 
+host:
+  name: Host
+  email: host@fixtures.fix
+  password_digest: <%= User.digest("password") %>
+
+guest:
+  name: Guest
+  email: guest@fixtures.fix
+  password_digest: <%= User.digest("password") %>
+  
+other_host:
+  name: Other Host
+  email: other_host@fixtures.fix
+  password_digest: <%= User.digest("password") %>

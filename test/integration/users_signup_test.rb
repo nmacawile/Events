@@ -9,6 +9,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                           password: "password",
                                           password_confirmation: "password" } }
       assert_redirected_to user_path(User.find_by(email: "validuser01@email.com"))
+      assert is_signed_in?
     end
   end
   

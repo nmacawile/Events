@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+birthday_host:
+  attendee: host
+  event_attended: birthday
+  
+wedding_host:
+  attendee: host
+  event_attended: wedding
+  
+birthday_guest:
+  attendee: guest
+  event_attended: birthday
+  
+wedding_guest:
+  attendee: guest
+  event_attended: wedding

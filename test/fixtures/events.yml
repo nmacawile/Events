@@ -1,9 +1,30 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  host: one
+birthday:
+  title: Birthday
+  host: host
+  time_start: <%= 10.days.from_now %>
+  time_end: <%= 11.days.from_now %>
+  venue: house
+  description: PARTY!
+  created_at: <%= 100.days.ago %>
 
-two:
-  title: MyString
-  host: two
+wedding:
+  title: Wedding
+  host: host
+  time_start: <%= 1.year.from_now %>
+  time_end: <%= 1.year.from_now %>
+  venue: beach
+  description: PARTY!
+  created_at: <%= 100.days.ago %>
+
+<% 10.times do |n| %>
+event<%= n %>:
+  title: Event<%= n %>
+  host: other_host
+  time_start: <%= 1.year.from_now %>
+  time_end: <%= 1.year.from_now %>
+  venue: beach
+  description: PARTY!
+  created_at: <%= n.days.ago %>
+<% end %>

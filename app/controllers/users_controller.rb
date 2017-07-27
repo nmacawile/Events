@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      sign_in(@user)
       redirect_to @user
     else
       render "new"
@@ -18,7 +19,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events = @user.hosted_events
+    @events_hosted = @user.events_hosted
+    @events_attended = @user.events_attended
   end
   
   private

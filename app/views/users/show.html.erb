@@ -1,10 +1,19 @@
 <h1><%= @user.name %></h1>
 <p>This is <%= @user.name %>'s profile page.</p>
 
-<% if @events.any? %>
+<% if @events_hosted.any? %>
   <h2>Events Hosted</h2>
   <ol>
-    <% @events.each do |event| %>
+    <% @events_hosted.each do |event| %>
+      <%= link_to event.title, event_path(event) %>
+    <% end %>
+  </ol>
+<% end %>
+
+<% if @events_attended.any? %>
+  <h2>Events Attended</h2>
+  <ol>
+    <% @events_attended.each do |event| %>
       <%= link_to event.title, event_path(event) %>
     <% end %>
   </ol>

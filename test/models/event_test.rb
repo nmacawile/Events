@@ -91,4 +91,18 @@ class EventTest < ActiveSupport::TestCase
     @event.time_end = 3.hours.from_now
     assert_not valid?
   end
+  
+  test "latest entry should be at the top" do
+    events = Event.take(10)
+    assert_equal events(:event0), events.first
+    assert_equal events(:event1), events.second
+    assert_equal events(:event2), events.third
+    
+  end
+  
+  test "should delete events associated with a deleted host" do
+    assert_difference "Event.where(host: users(:host)).count", -2 do
+      users(:host).destroy
+    end
+  end
 end

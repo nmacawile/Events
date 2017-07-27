@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  has_many :hosted_events, class_name: "Event", foreign_key: :host_id
+  has_many :events_hosted, class_name: "Event", foreign_key: :host_id, dependent: :destroy
+  has_many :attendances, foreign_key: :attendee_id, dependent: :destroy
+  has_many :events_attended, through: :attendances, source: :event_attended
   before_save { email.downcase! }
   has_secure_password
   validates :name, presence: true,

@@ -7,3 +7,10 @@ Created by:<%= link_to @event.host.name, user_path(@event.host) %>
     End: <%= @event.time_end %>
     Description: <%= @event.description %>
 </p>
+
+<h1>Attendees:</h1>
+<ol>
+  <% @attendees.each do |attendee| %>    
+    <li><%= attendee.name %></li>
+  <% end %>
+</ol>
