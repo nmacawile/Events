@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+secret_event_invite:
+  inviter: secret_event_host
+  invitee: other_guest
+  event: exclusive
+
+baseball_invite:
+  inviter: baseball_inviter
+  invitee: baseball_invitee
+  event: baseball_game

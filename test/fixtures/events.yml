@@ -17,6 +17,24 @@ wedding:
   venue: beach
   description: PARTY!
   created_at: <%= 100.days.ago %>
+  
+exclusive:
+  title: Secret Event
+  host: secret_event_host
+  time_start: <%= 1.year.from_now %>
+  time_end: <%= 1.year.from_now %>
+  venue: somewhere private
+  description: Exclusive event!
+  created_at: <%= 100.days.ago %>
+  
+baseball_game:
+  title: Baseball game
+  host: baseball_host
+  time_start: <%= 1.year.from_now %>
+  time_end: <%= 1.year.from_now %>
+  venue: Open field
+  description: Friendly game.
+  created_at: <%= 100.days.ago %>
 
 <% 10.times do |n| %>
 event<%= n %>:

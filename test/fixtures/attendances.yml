@@ -15,3 +15,15 @@ birthday_guest:
 wedding_guest:
   attendee: guest
   event_attended: wedding
+  
+secret_event_host_attendance:
+  attendee: secret_event_host
+  event_attended: exclusive
+
+baseball_host:
+  attendee: baseball_man
+  event_attended: baseball_game
+  
+baseball_inviter:
+  attendee: baseball_inviter
+  event_attended: baseball_game

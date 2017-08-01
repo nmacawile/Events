@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  
   root "events#index"
-  resources :events
+  resources :attendances, only: :create
+  resources :events do
+    resources :invites, only: [:new, :create]
+  end
   resources :users, only: [:show, :index]
   get "/signup" => "users#new"
   post "/signup" => "users#create"

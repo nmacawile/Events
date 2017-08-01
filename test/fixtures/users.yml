@@ -19,3 +19,28 @@ other_host:
   name: Other Host
   email: other_host@fixtures.fix
   password_digest: <%= User.digest("password") %>
+
+other_guest:
+  name: Other Guest
+  email: other_guest@fixtures.fix
+  password_digest: <%= User.digest("password") %>
+  
+secret_event_host:
+  name: Classified
+  email: classified@fixtures.fix
+  password_digest: <%= User.digest("password") %>
+
+baseball_host:
+  name: Baseball Host
+  email: bbh@fixtures.fix
+  password_digest: <%= User.digest("password") %>
+  
+baseball_inviter:
+  name: Baseball Inviter
+  email: bbinviter@fixtures.fix
+  password_digest: <%= User.digest("password") %>
+  
+baseball_invitee:
+  name: Baseball Invitee
+  email: bbinvitee@fixtures.fix
+  password_digest: <%= User.digest("password") %>

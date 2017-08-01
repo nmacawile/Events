@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   belongs_to :host, class_name: "User"
   has_many :attendances, foreign_key: :event_attended_id, dependent: :destroy
   has_many :attendees, through: :attendances
+  has_many :invites, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
   validates :title, presence: true,
                     length: { maximum: 50 }
