@@ -1,0 +1,5 @@
+<p>
+  <% @users.each do |user| %>
+    <%= link_to user.name, event_invites_path(invite: {invitee_id: user.id}), method: :post, data: { confirm: "sure?" } %>
+  <% end %>
+</p>

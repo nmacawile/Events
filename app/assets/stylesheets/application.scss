@@ -1,0 +1,74 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.event-block {
+  list-style: none;
+  padding: 5px;
+  .event-box {
+    border: 1px solid grey;
+    box-shadow: 2px 2px 1px grey;
+    -moz-box-shadow: 2px 2px 1px grey;
+    -webkit-box-shadow: 2px 2px 1px grey;
+    .event-desc {
+      overflow: hidden;
+      height: 100px;
+      margin-bottom: 5px;
+      &:hover {
+        overflow: auto;
+      }
+    }
+    .event-host, .event-sched, .event-venue, .event-desc {
+      display: block;
+      padding: 0 5px;
+    }
+    .event-title {
+      display: block;
+      background-color: $gray-lighter;
+      border-bottom: 1px solid gray;
+      font-size: 1.1em;
+      font-weight: bold;
+      padding: 0 5px;
+    }
+  }
+}
+
+.users-container {
+  list-style: none;
+  .user-block {
+    border: 1px solid gray;
+    margin: 4px;
+    padding: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 2px 2px 1px gray;
+    &:hover {
+      background-color: $gray-lighter;
+    }
+  }
+}
+
+.event-info {
+  tr {
+    td {
+      padding: 2px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  }
+}

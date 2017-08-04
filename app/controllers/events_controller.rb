@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @attendees = @event.attendees
+    @invites = @event.invites.group_by(&:invitee)
   end
 
   def new

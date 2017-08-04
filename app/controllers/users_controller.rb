@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @events_hosted = @user.events_hosted
     @events_attended = @user.events_attended
+    @invites_received = @user.invites_received.group_by(&:event)
   end
   
   private

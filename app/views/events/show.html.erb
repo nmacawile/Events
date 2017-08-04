@@ -1,16 +1,42 @@
-<h1><%= @event.title %></h1>
-Created by:<%= link_to @event.host.name, user_path(@event.host) %>
+<h1><u><%= @event.title %></u></h1>
+<table class="event-info">
+  <tr>
+    <td>Hosted by:</td><td><%= link_to @event.host.name, user_path(@event.host) %></td>
+  </tr>
+  <tr>
+    <td>Venue:</td><td><%= @event.venue %></td>
+  </tr>
+  <tr>
+    <td>Start:</td><td><%= @event.time_start.strftime("%a %d %b %Y, %I:%M %p") %></td>
+  </tr>
+  <tr>
+    <td>End:</td><td><%= @event.time_end.strftime("%a %d %b %Y, %I:%M %p") %></td>
+  </tr>
+</table>
 
-<p>
-    Venue: <%= @event.venue %>
-    Start: <%= @event.time_start %>
-    End: <%= @event.time_end %>
-    Description: <%= @event.description %>
-</p>
+<blockquote>
+  <%= simple_format @event.description %>
+</blockquote>
 
-<h1>Attendees:</h1>
-<ol>
-  <% @attendees.each do |attendee| %>    
-    <li><%= attendee.name %></li>
-  <% end %>
-</ol>
+<div class="row">
+  <div class="col-md-3">
+    <h3>Attendees:</h3>
+    <ol>
+      <% @attendees.each do |attendee| %>    
+        <li><%= link_to attendee.name, attendee %></li>
+      <% end %>
+    </ol>
+  </div>
+  <div class="col-md-3">
+    <h3>Pending Invites:</h3>
+    <ol>
+      <% @invites.each do |invitee, invites| %>    
+        <li>
+          <%= invites.map { |invite| invite.inviter.name }.join(", ") %>
+          <%= invites.many? ? "invite" : "invites" %> <%= link_to invitee.name, invitee %>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+</div>
+<%= button_to "Send Invites", new_event_invite_path(@event.id), class: ["btn", "btn-default"], method: :get %>

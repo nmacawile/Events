@@ -6,6 +6,7 @@ class InvitesController < ApplicationController
   
   def new
     @invite = Invite.new
+    @users = User.all
   end
   
   def create

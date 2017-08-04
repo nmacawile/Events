@@ -1,4 +1,14 @@
-<h1>Events</h1>
-<% @events.each do |event| %>
-  <%= link_to event.title, event_path(event) %><br>
-<% end %>
+<ul>
+  <h1>Events</h1>
+  <% @events.each do |event| %>
+    <li class="event-block col-sm-6 col-md-6 col-lg-4">
+      <div class="event-box">
+        <span class="event-title"><%= link_to event.title, event_path(event) %></span>
+        <span class="event-host">Host: <%= link_to event.host.name, event.host %></span>
+        <span class="event-sched">Time: <%= event.time_start.strftime("%a %d %b %Y, %I:%M %p").upcase %></span>
+        <span class="event-venue">Venue: <%= event.venue %></span>
+        <span class="event-desc"><%= simple_format event.description %></span>
+      </div>
+    </li>
+  <% end %>
+</ul>

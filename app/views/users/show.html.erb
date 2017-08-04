@@ -1,20 +1,35 @@
-<h1><%= @user.name %></h1>
-<p>This is <%= @user.name %>'s profile page.</p>
+<h1><u><%= @user.name %>'s Profile</u></h1>
 
 <% if @events_hosted.any? %>
-  <h2>Events Hosted</h2>
-  <ol>
+  <h3>Events hosted</h3>
+  <ul>
     <% @events_hosted.each do |event| %>
-      <%= link_to event.title, event_path(event) %>
+      <li>
+        <%= link_to event.title, event_path(event) %>
+      </li>
     <% end %>
-  </ol>
+  </ul>
 <% end %>
 
 <% if @events_attended.any? %>
-  <h2>Events Attended</h2>
-  <ol>
+  <h3>Events attended</h3>
+  <ul>
     <% @events_attended.each do |event| %>
-      <%= link_to event.title, event_path(event) %>
+      <li>
+        <%= link_to event.title, event_path(event) %>
+      </li>
     <% end %>
-  </ol>
+  </ul>
+<% end %>
+
+<% if @invites_received.any? %>
+  <h3>Pending invites</h3>
+  <div class="container-fluid">
+    <% @invites_received.each do |event, invite| %>
+      <div class="row">
+        <div class="col-md-4"><%= invite.map{ |i| i.inviter.name }.join(",") %> <%= invite.many? ? "invite" : "invites" %> you to <%= link_to event.title, event_path(event) %></div>
+        <div class="col-md-2"><%= button_to "Accept", attendances_path(attendance: {event_attended_id: event.id} ), method: :post, class: ["btn", "btn-default"] %></div>
+      </div>
+    <% end %>
+  </div>
 <% end %>

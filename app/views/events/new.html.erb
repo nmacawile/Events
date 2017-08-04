@@ -1,12 +1,28 @@
-<h1>Create Event</h1>
-<%= form_for @event do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :venue %>
-  <%= f.text_area :venue %>
-  <%= f.label :time_start %>
-  <%= f.datetime_field :time_start %>
-  <%= f.label :time_end %>
-  <%= f.datetime_field :time_end %>
-  <%= f.submit "Create" %>
-<% end %>
+<div class="col-md-6 col-md-offset-3">
+  <h1>Create Event</h1>
+  <%= form_for @event, class: "form-horizontal" do |f| %>
+    <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%= f.label :venue %>
+    <%= f.text_field :venue, class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%= f.label :time_start %>
+    <%= f.datetime_field :time_start, class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%= f.label :time_end %>
+    <%= f.datetime_field :time_end, class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%= f.submit "Create", class: ["btn", "btn-primary"] %>
+    </div>
+  <% end %>
+</div>
