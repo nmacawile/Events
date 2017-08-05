@@ -39,7 +39,7 @@ class InvitesController < ApplicationController
     
     def invitee_exists
       existing = User.exists? params[:invite][:invitee_id]
-      render "new" unless existing
+      redirect_to new_event_invite_path unless existing
     end
     
     def invitee_is_already_attending

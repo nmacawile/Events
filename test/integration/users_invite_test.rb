@@ -22,6 +22,7 @@ class UserInviteTest < ActionDispatch::IntegrationTest
     assert_no_difference "Invite.count" do
       post event_invites_path(@birthday), params: { invite: { invitee_id: "invalid" } }
     end
+    follow_redirect!
     assert_template "invites/new"
   end
  
