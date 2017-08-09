@@ -22,7 +22,7 @@
   </ul>
 <% end %>
 
-<% if @invites_received.any? %>
+<% if current_user?(@user.id) && @invites_received.any? %>
   <h3>Pending invites</h3>
   <div class="container-fluid">
     <% @invites_received.each do |event, invite| %>

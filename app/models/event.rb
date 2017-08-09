@@ -4,6 +4,8 @@ class Event < ApplicationRecord
   has_many :attendees, through: :attendances
   has_many :invites, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
+  scope :unfinished, -> { where("time_end > ?", Time.now ) }
+  scope :finished, -> { where("time_end <= ?", Time.now ) }
   validates :title, presence: true,
                     length: { maximum: 50 }
   validates :description, length: { maximum: 1000 }

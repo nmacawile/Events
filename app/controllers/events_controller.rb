@@ -23,7 +23,8 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @unfinished = Event.unfinished
+    @finished = Event.finished
   end
   
   private

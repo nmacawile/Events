@@ -1,5 +1,8 @@
-<p>
-  <% @users.each do |user| %>
-    <%= link_to user.name, event_invites_path(invite: {invitee_id: user.id}), method: :post, data: { confirm: "sure?" } %>
-  <% end %>
-</p>
+<h1>Invite to <%= @event.title %></h1>
+<% @users.each do |user| %>
+  <div class="row">
+    <div class="col-md-3 col-sm-1"><%= link_to user.name, user %></div>
+    <div class="col-md-1 col-sm-1"><%= button_to "invite", event_invites_path(invite: {invitee_id: user.id}), method: :post, data: { confirm: "Are you sure?" }, class: ["btn", "btn-default"] %></div>
+  </div>
+<% end %>
+<%= link_to "Back to event", @event %>

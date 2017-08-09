@@ -39,4 +39,7 @@
     </ol>
   </div>
 </div>
-<%= button_to "Send Invites", new_event_invite_path(@event.id), class: ["btn", "btn-default"], method: :get %>
+
+<% if signed_in? && already_attending?(@event.id) %>
+  <%= button_to "Send Invites", new_event_invite_path(@event.id), class: ["btn", "btn-default"], method: :get %>
+<% end %>

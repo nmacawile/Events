@@ -3,10 +3,11 @@ class InvitesController < ApplicationController
   before_action :user_can_invite, only: [:new, :create]
   before_action :invitee_exists, only: :create
   before_action :invitee_is_already_attending, only: :create
+  before_action :invite_has_already_been_sent, only: :create
   
   def new
-    @invite = Invite.new
-    @users = User.all
+    @event = Event.find(params[:event_id])
+    @users = User.where("id NOT IN (?)", @event.attendees.map(&:id))
   end
   
   def create
@@ -16,7 +17,6 @@ class InvitesController < ApplicationController
     if @invite.save
       redirect_to event_path(params[:event_id])
     else
-      raise
       render "new"
     end
   end
@@ -45,5 +45,9 @@ class InvitesController < ApplicationController
     def invitee_is_already_attending
       invitee = User.find(params[:invite][:invitee_id])
       redirect_to event_path(params[:event_id]) if invitee.attending?(params[:event_id])
+    end
+    
+    def invite_has_already_been_sent
+      redirect_to event_path(params[:event_id]) if invite_exists?(params[:event_id], params[:invite][:invitee_id])
     end
 end
