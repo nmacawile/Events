@@ -15,4 +15,4 @@ config/credentials/*.key
 node_modules
 config/application.yml
 docker-compose*
-.git
+# .git
